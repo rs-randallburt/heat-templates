@@ -7,17 +7,17 @@ parameters:
 
   flavor:
     description: flavor for the server instances
-    type: string
+    type: String
     default: Ubuntu 12.04 LTS (Precise Pangolin)
 
   image:
-    type: string
+    type: String
     description: image for the server instances
     default: 2GB Standard Instance
 
   key_name:
     description: nova keypair to use for ssh access to the servers
-    type: string
+    type: String
 
 resources:
 
