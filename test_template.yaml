@@ -15,10 +15,6 @@ parameters:
     description: image for the server instances
     default: 2GB Standard Instance
 
-  key_name:
-    description: nova keypair to use for ssh access to the servers
-    type: String
-
 resources:
 
   node1:
@@ -26,7 +22,6 @@ resources:
     properties:
       flavor: { get_param: flavor }
       image: { get_param: image }
-      key_name: { get_param: key_name }
       user_data:
         str_replace:
           template: |
@@ -40,5 +35,4 @@ resources:
     properties:
       flavor: { get_param: flavor }
       image: { get_param: image }
-      key_name: { get_param: key_name }
 
