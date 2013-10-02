@@ -8,12 +8,12 @@ parameters:
   flavor:
     description: flavor for the server instances
     type: String
-    default: "1"
+    default: 2GB Standard Instance
 
   image:
     type: String
     description: image for the server instances
-    default: 2GB Standard Instance
+    default: Ubuntu 12.04 LTS (Precise Pangolin)
 
 resources:
 
