@@ -1,0 +1,48 @@
+heat_template_version: 2013-05-23
+
+description: |
+  Example template showing HOT str_replace throwing error when param is None
+
+parameters:
+
+  flavor:
+    description: flavor for the server instances
+    type: String
+
+  image:
+    description: image for the server instances
+
+  key_name:
+    description: nova keypair to use for ssh access to the servers
+    type: String
+
+resources:
+
+  node1:
+    type: OS::Nova::Server
+    properties:
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      key_name: { get_param: key_name }
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash -v
+            echo "Other server is %other_ip%" >> other.txt
+          params:
+            "%other_ip%": { get_attr: [ node2, accessIPv4 ] }
+
+  node2:
+    type: OS::Nova::Server
+    properties:
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      key_name: { get_param: key_name }
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash -v
+            echo "Other server is %other_ip%" >> other.txt
+          params:
+            "%other_ip%": { get_attr: [ node2, accessIPv4 ] }
+
