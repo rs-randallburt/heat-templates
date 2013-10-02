@@ -8,7 +8,7 @@ parameters:
   flavor:
     description: flavor for the server instances
     type: String
-    default: Ubuntu 12.04 LTS (Precise Pangolin)
+    default: "1"
 
   image:
     type: String
