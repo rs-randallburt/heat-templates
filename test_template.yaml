@@ -7,14 +7,15 @@ parameters:
 
   flavor:
     description: flavor for the server instances
-    type: String
+    type: string
 
   image:
+    type: string
     description: image for the server instances
 
   key_name:
     description: nova keypair to use for ssh access to the servers
-    type: String
+    type: string
 
 resources:
 
