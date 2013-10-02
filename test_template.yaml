@@ -41,11 +41,4 @@ resources:
       flavor: { get_param: flavor }
       image: { get_param: image }
       key_name: { get_param: key_name }
-      user_data:
-        str_replace:
-          template: |
-            #!/bin/bash -v
-            echo "Other server is %other_ip%" >> other.txt
-          params:
-            "%other_ip%": { get_attr: [ node2, accessIPv4 ] }
 
